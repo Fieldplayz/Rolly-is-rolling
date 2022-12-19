@@ -33,6 +33,7 @@ public class InktMeter : MonoBehaviour
 
     private void Update()
     {
+       // update de inktmeter met hoeveel je getekend hebt
        inktMeter.fillAmount = 1 - (DrawLine.instance.lineLength / DrawLine.instance.maxLineLength);
         
     }
