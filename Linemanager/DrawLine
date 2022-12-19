@@ -51,6 +51,7 @@ public class DrawLine : MonoBehaviour
             }
             if (Input.GetMouseButton(0))
             {
+                // volgt de positie van de muis
                 Vector2 tempMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 if (Vector2.Distance(tempMousePosition, mousePositions[mousePositions.Count - 1]) > .1f)
                 {
@@ -64,6 +65,7 @@ public class DrawLine : MonoBehaviour
 
     public void CreateLine()
     {
+        // maakt een lijn en hij verbindt de postie van de muis positie en de vorige muispositie
         currentLine = Instantiate(linePrefab, Vector3.zero, quaternion.identity);
         lineRenderer = currentLine.GetComponent<LineRenderer>();
         edgeCollider = currentLine.GetComponent<EdgeCollider2D>();
@@ -78,6 +80,7 @@ public class DrawLine : MonoBehaviour
 
     void UpdateLine(Vector2 mousePos)
     {
+        // hij maakt een lijn tussen de 2 posities
         mousePositions.Add(mousePos);
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, mousePos);
